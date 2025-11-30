@@ -1,0 +1,14 @@
+<h1>Movies</h1>
+<a href="{% url 'firstapp:add_movie' %}">Add movie</a>
+<div>
+    {% for m in movies %}
+    <div>
+        <a href="{% url 'firstapp:movie_detail' m.pk %}">
+            <img src="{{ m.img.url }}" alt="{{ m.title }}" width="200px">
+            <h3> {{ m.title }} </h3>
+        </a>
+            <p>{{ m.release }}</p>
+            <p>{{ m.country }}</p>
+    </div>
+    {% endfor %}
+</div> 
