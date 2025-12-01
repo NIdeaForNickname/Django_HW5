@@ -1,6 +1,13 @@
 <h1>{{ movie.title }}</h1>
 
-<img src="{{ movie.img }}" alt="{{ movie.title }}">
-<p>Release date: {{ movie.release }}</p>
-<p>Country: {{ movie.country }}</p>
-<p> {{ movie.description }} </p>
+<img src="{{ movie.poster.url }}" width="300">
+
+<p><strong>Release date:</strong> {{ movie.release }}</p>
+<p><strong>Country:</strong> {{ movie.country }}</p>
+<p><strong>Rating:</strong> {{ movie.rating }}/5</p>
+
+<p>{{ movie.description }}</p>
+
+<a href="{% url 'firstapp:edit_movie' movie.pk %}">Edit</a> |
+<a href="{% url 'firstapp:delete_movie' movie.pk %}">Delete</a> |
+<a href="{% url 'firstapp:index' %}">Back</a>

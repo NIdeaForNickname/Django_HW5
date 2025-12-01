@@ -1,3 +1,5 @@
 /.venv
 /Django_HW11/media
 /Django_HW11/db.sqlite3
+Django_HW11/firstapp/migrations
+Django_HW11/firstapp/__pycache__

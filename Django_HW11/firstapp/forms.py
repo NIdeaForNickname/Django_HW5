@@ -4,10 +4,9 @@ from .models import Movie
 class MovieForm(forms.ModelForm):
     class Meta:
         model = Movie
-        fields = ["title", "description", "release", "country", "img"]
+        fields = ["title", "description", "release", "rating", "country", "img"]
         widgets = {
-            'release': forms.DateInput(attrs={
-                'type': 'date'
-            })
+            'release': forms.DateInput(attrs={'type': 'date'}),
+            'rating': forms.NumberInput(attrs={'min': 1, 'max': 5})
         }
         

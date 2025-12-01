@@ -1,14 +1,21 @@
-<h1>Movies</h1>
 <a href="{% url 'firstapp:add_movie' %}">Add movie</a>
-<div>
+
+<h2>Sort:</h2>
+<a href="?sort=rating">Rating</a>,
+<a href="?sort=date">Date</a>
+
+<hr>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
     {% for m in movies %}
-    <div>
+    <div style="border: 1px solid #ccc; padding: 10px; width: 200px;">
         <a href="{% url 'firstapp:movie_detail' m.pk %}">
-            <img src="{{ m.img.url }}" alt="{{ m.title }}" width="200px">
-            <h3> {{ m.title }} </h3>
+            <img src="{{ m.img.url }}" width="200">
+            <h3>{{ m.title }}</h3>
         </a>
-            <p>{{ m.release }}</p>
-            <p>{{ m.country }}</p>
+        <p>Date: {{ m.release }}</p>
+        <p>Country: {{ m.country }}</p>
+        <p><strong>Rating: {{ m.rating }}/5</strong></p>
     </div>
     {% endfor %}
-</div> 
+</div>
