@@ -1,13 +1,29 @@
-<h1>{{ movie.title }}</h1>
+<div style="border: 1px solid #ccc; padding: 10px;">
+    <h1>{{ movie.title }}</h1>
 
-<img src="{{ movie.poster.url }}" width="300">
+    <img src="{{ movie.img.url }}" width="300">
 
-<p><strong>Release date:</strong> {{ movie.release }}</p>
-<p><strong>Country:</strong> {{ movie.country }}</p>
-<p><strong>Rating:</strong> {{ movie.rating }}/5</p>
+    <p><strong>Release date:</strong> {{ movie.release }}</p>
+    <p><strong>Country:</strong> {{ movie.country }}</p>
+    <p><strong>Rating:</strong> {{ movie.rating }}/5</p>
 
-<p>{{ movie.description }}</p>
+    <p>{{ movie.description }}</p>
 
-<a href="{% url 'firstapp:edit_movie' movie.pk %}">Edit</a> |
-<a href="{% url 'firstapp:delete_movie' movie.pk %}">Delete</a> |
-<a href="{% url 'firstapp:index' %}">Back</a>
+    <a href="{% url 'firstapp:edit_movie' movie.pk %}">Edit</a> |
+    <a href="{% url 'firstapp:delete_movie' movie.pk %}">Delete</a> |
+    <a href="{% url 'firstapp:index' %}">Back</a>
+</div>
+
+<div style="border: 1px solid #ccc; padding: 10px;">
+    <div style="border: 1px solid #ccc; padding: 10px;">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Add Comment</h3>
+            {{ form.as_p }}
+            <button type="submit">Yes</button>
+        </form>
+    </div>
+    {% for review in reviews %}
+        {% include "review.html" with review=review delete=True %}
+    {% endfor %}
+</div>

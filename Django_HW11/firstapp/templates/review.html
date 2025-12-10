@@ -1,0 +1,5 @@
+<div style="border: 1px solid #ccc; padding: 10px;">
+    <p><strong>{{ review.name }}:</strong> {{ review.text }}</p>
+    <p>{{ review.date }}</p>
+    {% if delete %} <a href="/delete_comment/{{ review.id }}/"> Delete? </a> {% endif %}
+</div>

@@ -1,0 +1,7 @@
+<form method="post" enctype="multipart/form-data">
+    <h1>Delete Comment?</h1>
+    {% csrf_token %}
+    {% include "review.html" with review=review delete=False %}
+    <button type="submit">Yes </button>
+    <a href="/"> Cancel </button>
+</form>
