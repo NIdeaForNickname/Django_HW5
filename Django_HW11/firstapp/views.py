@@ -32,7 +32,7 @@ def movie_detail(request, pk):
             return redirect("firstapp:movie_detail", pk=pk)
     
     form = ReviewForm()
-    return render(request, "movie_detail.html", { "form": form, "movie" : movie, "reviews": movie.Review.all() })
+    return render(request, "movie_detail.html", { "form": form, "movie" : movie, "reviews": movie.Review.all(), "Genres": movie.genre.all()})
 
 def add_movie(request):
     if request.method == "POST":
